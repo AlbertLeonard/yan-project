@@ -1,0 +1,37 @@
+PREFIX=maize14G
+OUTPUT_PREFIX=tmp
+INPUT=data/${PREFIX}.seq 
+PL=5000
+ENABLE_LOG=false
+
+k=31
+min_kmer_count=2
+max_kmer_count=100000
+min_shared_kmers_edges=10
+min_shared_kmers=10
+max_shared_kmers=20000
+min_reads_per_cluster=2
+max_degree=50
+
+K=$k
+#CL=0.0119 #for k=16 c=0.005 pac
+#CL=0.0296 #for k=21 c=0.005 pac
+#CL=0.038 #for k=31 c=0.005 pac
+#CL=0.0476 #for k=16 c=0.02 pac
+#
+#CL=0.0038 #for k=31 c=0.001 cow
+#CL=0.0031397 #for k=31, c=0.001 120G cow
+
+#CL=0.00825 #for k=31, c=0.001 3cell
+#CL=0.00899 #for k=31, c=0.001 2cell
+
+#CL=0.05561 #for k=31, c=0.01 maize 1.8G
+#CL=0.19 #for k=31, c=0.01 maize 45G
+#CL=0.02 #for k=31, c=0.01 maize 45G
+CL=0
+
+
+TARGET=target/scala-2.11/LocalCluster-assembly-0.1.jar 
+SPARK_SUBMIT=$HOME/software/spark/bin/spark-submit
+MASTER=spark://genomics-ecs1:7077
+
